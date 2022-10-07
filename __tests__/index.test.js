@@ -50,7 +50,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("Functions with multiple invocations", () => {
+  describe("Functions with multiple invocations", () => {
     describe("increment", () => {
       it("increments the passed argument by 1", () => {
         expect(hof.increment(0)).toBe(1);
@@ -100,7 +100,7 @@ describe("Higher Order Functions", () => {
   //    })
   //  })
 
-  describe("Unary Functions", () => {
+  describe.only("Unary Functions", () => {
     describe("twice", () => {
       it("returns a function on first invocation", () => {
         const double = hof.twice(hof.add);

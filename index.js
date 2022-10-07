@@ -39,9 +39,19 @@ hof.curry = function (binary, x) {
   };
 };
 
-hof.liftF = function () {};
+hof.liftF = function (binary) {
+  return function innerLift(x) {
+    return function innerInnerLift(y) {
+      return binary(x, y);
+    };
+  };
+};
 
-hof.twice = function () {};
+hof.twice = function (binary) {
+  return function unary(x) {
+    return binary(x, x);
+  };
+};
 
 hof.composeU = function () {};
 
