@@ -1,20 +1,43 @@
 const hof = {};
 
-hof.identity = function () {};
+hof.identity = function (arg) {
+  return arg;
+};
 
-hof.identityF = function () {};
+hof.identityF = function (x) {
+  return function (x) {
+    return x;
+  };
+};
 
-hof.add = function () {};
+hof.add = function (x, y) {
+  return x + y;
+};
 
-hof.subtract = function () {};
+hof.subtract = function (x, y) {
+  return x - y;
+};
 
-hof.multiply = function () {};
+hof.multiply = function (x, y) {
+  return x * y;
+};
 
-hof.increment = function () {};
+hof.increment = function (x) {
+  return hof.add(x, 1);
+};
 
-hof.addF = function () {};
+hof.addF = function (x) {
+  function innerAddF(y) {
+    return hof.add(x, y);
+  }
+  return innerAddF;
+};
 
-hof.curry = function () {};
+hof.curry = function (binary, x) {
+  return function newFunc(y) {
+    return binary(x, y);
+  };
+};
 
 hof.liftF = function () {};
 
